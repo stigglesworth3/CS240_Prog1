@@ -1,20 +1,15 @@
 #pragma once
 
-class Planet {
+class Vector {
 	private:
-		long id;
-		int pos;
-		int distance;
-		char type;
+		Planet* array;
 
 	public:
 		void insert(int, Planet *p);
 		~Vector();
 
-    int orbit();
-		long Planet::getID() { return id; }
-		int Planet::getDistance() { return distance; }
-		int Planet::getPos() { return pos; }
-		char Planet::getType() { return type; }
+		Planet* read(int);
+		bool remove(int);
+		unsigned size();
 		//you may add any additional methods you may need.
 };

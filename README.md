@@ -1,186 +1,226 @@
-### CS 240 - Spring 2019
-# Lab 2 - Separate Compilation and Basic C++
-## Due Date: 11:59 p.m., February 6th, 2019
+#### CS 240 - Spring 2019
+### PROGRAM 1 README FILE
+
+## KNOWN BUGS AND INCOMPLETE PARTS:
+- What parts of the program you were not able to complete
+
+## REFERENCES:
+- List any outside resources used
+
+## MISCELLANEOUS COMMENTS:
+- Anything you would like the grader to know
+
+***
+### Assignment Description
+***
+# Program 1 - Building Solar Systems
+## Due Date: 11:59 p.m., February 27th, 2019
 
 *All programs will be tested on the machines in the Q22 lab. If your code does not run on the system in this lab, it is considered non-functioning EVEN IF IT RUNS ON YOUR PERSONAL COMPUTER. Always check that your code runs on the lab machines before submitting.*
 
-### Provided Files and Expected Output
-* _Files_
-    * lab2.cpp
-    * Star.h
-    * Star.cpp
-* _Expected Command > Output_
-    * Test Commands we will run
-        * make
-        * make run
-        * make clean
-    * Sample Output (with our test case):
-        ```shell
-            ./lab2
-    	TEST #1: Test Star Creation with 0 planets
-    	========================PASS========================
-    	TEST #2: Test Creating a Planet
-    	========================PASS========================
-    	TEST #3: Add Planets to a Star
-    	========================PASS========================
-    	TEST #4: Test Star orbit
-    	========================PASS========================
-    	TEST #5: Print Star Information
-        The star currently has 8 planets.
-        The star can support up to 8 planets.
-        Planets:
-        	Planet 0 is 654 million miles away at position 1 around the star.
-        	Planet 1 is 966 million miles away at position 1 around the star.
-        	Planet 2 is 2896 million miles away at position 1 around the star.
-        	Planet 3 is 2168 million miles away at position 1 around the star.
-        	Planet 4 is 2193 million miles away at position 1 around the star.
-        	Planet 5 is 262 million miles away at position 1 around the star.
-        	Planet 6 is 1594 million miles away at position 1 around the star.
-        	Planet 7 is 1962 million miles away at position 1 around the star.
-    	========================PASS========================
-    	All Tests Passed.
-        Dont forget to run with Valgrind and push to Github!
-        ```
+### Driver Code and Test Files
+
+* program1.cpp
+    * include the driver code with your submission, but do not alter it, except where specified by comments
 
 ### Grading Rubric
-**_TOTAL: 15 points_**
-* **Part A: 3 points**
-    * header file contains include guards [3 points]
-* **Part B: 12 points**
-    * Passes test #1 [1 point]
-    * Passes test #2 [2 points]
-    * Passes test #3 [2 points]
-    * Passes test #4 [2 points]
-    * Passes test #5 [1 point]
-    * Makefile contains an 'all' target that _only_ compiles the code [1 point]
-    * Makefile contains an 'run' target that executes and only compiles if necessary [1 point]
-    * Makefile contains an 'clean' target that removes object files and the executable [1 point]
-    * Makefile contains variables as described [1 point]
-* **Part C:**
-    * Repository includes .o files or binary [-1 point]
-    * Does not follow [Style guidelines](https://drive.google.com/open?id=1a5I7XhhCDRHoS8LUfILu3y2la4wW8HHh4olO30YvMVk)[-3 points]
-    * Your submission will not be accepted if:
-        * Does not follow requested project structure and submission format
-        * Does not compile
+
+**_TOTAL: 45 points_**
+
+* **Part A** (10 points): Vectors
+    * [2 pts] Test 1 Passed: creates a vector with properly initialized values
+    * [2 pts] Test 2-3 Passed: inserting into the vector passes all tests
+    * [2 pts] Test 4-6 Passed: reading from vector passes all tests
+    * [2 pts] Test 7 Passed: removing from vector passes tests
+    * [2 pts] Test 8-9 Passed:  deleting vector frees memory
+* **Part B** (10 points): Lists
+    * [2 pts] Test 10 Passed: creates a list with properly initialized values
+    * [2 pts] Test 11 Passed: inserting into list at index passes test
+    * [2 pts] Test 12 Passed: reading from list at index passes test
+    * [4 pts] Test 13 Passed: removing and deleting from list at index passes test
+* **Part C** (20 points): Stars
+    * [12 pts] Test 14 Passed: create, read, and remove from Starvector and Starlist without error
+    * [8 pts] Test 15 Passed: delete Starvector and Starlist without error
+* **Part D** (5 points): Profile
+   * [5 pts] completes profiling without error
+* **Style Guidelines and Memory Leaks**
+    * You will lose significant points for the following:
+        * Memory leak or error detected in valgrind  (-10 points)
+        * Repository includes .o files or binary [-1 point]
+        * Does not follow [Style guidelines](https://drive.google.com/open?id=1a5I7XhhCDRHoS8LUfILu3y2la4wW8HHh4olO30YvMVk)[-3 points]
+        * Your submission will not be accepted if:
+            * Does not follow requested project structure and submission format
+            * Does not compile
 
 ### Guidelines
 
-This is an individual lab assignment. You must do the vast majority of the work on your own. It is permissible to consult with classmates to ask general questions about the assignment, to help discover and fix specific bugs, and to talk about high level approaches in general terms. It is not permissible to give or receive answers or solution details from fellow students.
+This is a pair programming assignment. You and a partner can divide up the work. Although both of you may not work on all parts of the program you should understand and be able to fully explain every portion of the code. Outside of your team, it is permissible to consult with classmates to ask general questions about the assignment, to help discover and fix specific bugs, and to talk about high level approaches in general terms. It is not permissible to give or receive answers or solution details from fellow students.
 
-You may research online for additional resources; however, you may not use code that was written specifically *to* solve the problem you have been given, and you may not have anyone else help you write the code or solve the problem. You may use code snippets found online, providing that they are appropriately and clearly cited, within your submitted code.
+You may research online for additional resources; however, you may not use code that was written specifically to solve the problem you have been given, and you may not have anyone else help you or your partner write the code or solve the problem. You may use code snippets found online, providing that they are appropriately and clearly cited, within your submitted code.
 
-*By submitting this assignment, you agree that you have followed the above guidelines regarding collaboration and research.*
+If you or your partner are found to have plagiarized any part of the assignment, both will receive a 0 and be reported.
+
+__In this program, you will learn to__:
+
+* Work with sequential and secondary data structures
+
+For the first program you and partner are going to build both a dynamic array (vector) and a linked list. Each data structure will be tested to ensure the validity of its operations. Once that is complete and you know your data structures are working, we are going to use them as internal data structures for our Star class. Both versions of the Star class will be evaluated to see which provides better performance.
+
+You will reuse your Planet class from lab 3 with no changes.
+
+:warning: *For all Data Structures, you may (and probably should) add additional functions, methods, and attributes, but what follows is the required minimum interface*
+
+:no_entry_sign: You may __not__ use the STL library for this program.
 
 ***
+You will need to make a small change to your planet class constructor.
 
-The goal of Lab 2 is to familiarize you with the few basic C++ features and aspects that we have discussed in the first weeks of class. In particular, you will implement multiple classes with various methods; you will use iostream to produce formatted output; you will do just a bit more separate compilation by building two separate object (i.e. _.o_) files, and then separately link them into a single executable.
+#### Planet
+* `Planet(int distance)`
+    * You do not need to pass an ID. The ID will now be the address of the object.
+* `long int getID()`
+    * The return type of the getID() method will need to be changed to a long to hold the address (8 bytes)
 
-## Part A: Star Program
+:warning: You will need to update your `Star` class method `addPlanet` accordingly.
+***    
 
-You should implement two classes, Star and Planet. Both these classes are already defined in a Star.h file and should be implemented in the Star.cpp file. All methods you write must be external.
+## Part A: Vectors
+You must break up your code into Vector.h and Vector.cpp according to the conventions we have discussed in class.
 
-### Planet
-The Planet class has two constructors. One that creates a Planet and initializes the id to -1, and another that takes a distance and an #id number as a parameter. Your planet class should have the following interface:
-* _public_:
-    * Planet(); //already implemented for you
-        * A default constructor so you can allocate memory for an empty array. This is for utility purposes only and should be considered an invalid object.
-    * Planet(int distance, int id); //already implemented for you
-        * A value constructor that sets the Planet’s `id` to a unique value and its `distance` to a random number between 0 to 3000 (in millions of miles).
-        * The `pos` should be set to 0
-    * int orbit();
-        * Moves the planet +1 unit around the Star.
-            * Your position should always be in the range 0-359.
-        * Returns the planet's current position
-    * int getID();
-        * returns the Planet’s ID number
-    * int getDistance();
-        * returns the Planet's distance from the Star
-    * int getPosition();
-        * returns the Planet's position relative to the Star
+Create a dynamic array data class, Vector. You must create your internal array on the heap (using `new`). Your Vector class should have, at minimum, the following:
+* `~Vector()`
+    * A destructor to clean up memory
+* `void insert(int index, Planet * p)`
+    * inserts an element at index, increasing the Vector size by 1
+    * if the insert index is out of bounds, you should increase the capacity to the size of the index + 1
+* `Planet* read(int index)`
+    * returns a pointer to the Planet object at `index`
+    * if the index is out of bounds, return NULL
+* `bool remove(int index)`
+    * remove the Planet object at `index`, decreasing the size of the Vector by 1.
+* `unsigned size()`
+    * returns the current size of the Vector (this may not be the same as the number of elements)
 
-:bulb: Notice I only gave you the public interface. Although I wrote the private interface for you in this lab, normally the private interface will be up to you.
+## Part B: Linked Lists
+You must break up your code into List.h and List.cpp according to the conventions we discussed in class. Create a doubly linked list using a List and Node classes. :bulb: Your List and Node classes can go in the same file. Your linked list should have the following operations:
+* `List()`
+    * A pointer to a head and tail node, both initialized to NULL
+* `~List()`
+    * A destructor to clean up memory
+* `void insert(int index, Planet * p)`
+    * inserts an element at index, increasing the List size by 1
+    * if the insert index is out of bounds, you should append to the end of the list
+* `Planet* read(int index)`
+    * returns a pointer to the Planet object at `index`
+    * if the index is out of bounds, return NULL
+* `bool remove(int index)`
+    * remove the Planet object at `index`, decreasing the size of the Vector by 1.
+    * return `true` on successful deletion or `false` if the index is out of bounds
+* `unsigned size()`
+    * returns the current size of the List
 
-__Show your TA your code.__
+## Part C: Full of Stars
 
-__--END OF IN LAB REQUIRED WORK--__
+Although you should have most of the code written from previous labs. You will need to make slight alterations to your Star class to work with the changes to the Planet class and to work with one of the Data Structures (Vector, List) you have created. You must break up your code into Star.h and Star.cpp according to the conventions we discussed in class.
 
-__You may continue to work on the remainder of the lab on your own time or in lab__
+You will have two Star classes, Starlist and Starvector. You will be using your List and Vector, respectively, as the internal data structure to hold Planets.
 
-### Star
-The Star class will have a constructor that takes a random number of planets it is allowed to hold as a parameter, between 0 and 20. You will also need an array of Planet objects. For now, the Planet array is allocated to buffer size of 20. We will make this more dynamic in a later lab. Below is the expected interface for your Star class.
-* _public_:
-    * Planet planets[20];
-       * An array of Planets. We will make this more dynamic in a later lab.
-    * Star(int);
-        * A constructor that takes the maximum number of Planets as a parameter
-    * bool addPlanet();
-        * Adds a new Planet object to the Star with a unique id and a random distance. The new planet is only added if the maximum number of planets the Star can support has not yet been reached.
-        * Return true on success and false on failure.
-    * Planet getFurthest();
-        * Returns the furthest planet form the Star.
-    * void orbit();
-        * calls orbit on all planets orbiting the Star
-    * void printStarInfo();
-        * Prints the Star information. (See sample output above)
-    * int getCurrentNumPlanets();
-        * returns the current number of planets
-    * int getMaxPlanets();
-        * returns the maximum number of planets
+#### Starlist
 
-## Part B: Testing and Running Your Code
-### Make
-You are going to be using separate compilation to build your program. This means you will need to create two object files. One from the provided lab2.cpp file, and one from your Star.cpp file. The header file, or .h file, contains your class declarations. You never compile header files. They are always included in other files that get compiled and should be dependencies for a target, never a target themselves. Often, they will be included in multiple files and as multiple dependencies.
+Your Starlist must have the following:
 
-For this class we are going to be using `make` and makefiles to compile our code. Write a makefile that compiles lab2.cpp and Star.cpp to separate object files. Then link them as shown in class. Your makefile will need to have the following targets (in addition to the compile and linking targets).
-* __all__
-   * This will compile your code to an executable, and should have your executable target as a dependency
-* __run__
-   * This target has ‘all’ as a dependency, then runs your executable
-* __clean__
-   * removes object files and the executable. Be careful not to delete your source code.
-* :bulb: You may add any additional targets you feel are useful
-    * For example, I always add a `submit` target that first cleans, then adds all files, commits, and pushes to github.
+* `Starlist()`
+    * Initialize memory
+* `~Starlist()`
+    * deallocate all memory when the Star is deleted.
+* `long addPlanet()`
+    * return the ID of the newly created Planet
+* `bool removePlanet(int)`
+    * Takes a Planet’s ID as a parameter, and removes the Planet from the Star.
+    * You must return `true` upon successful deletion and `false` on failure if the ID isn't found.
+* `Planet * getPlanet(int)`
+    * Takes a Planet’s ID and returns a pointer to the Planet. If the Planet is not found, it returns NULL.
+* `void orbit()`
+    * Iterate through your planets and alter their orbit position by +1
+* `void printStarInfo()`
+    * Prints the Star information.
+* `unsigned int getCurrentNumPlanets()`
+    * returns the current number of planets stored
 
-[Click here for more information on makefiles](http://mrbook.org/blog/tutorials/make/)
+#### Starvector
 
-You must use variables in your makefile to accomplish the following:
-* A compiler flag variable that will easily allow you to switch compiler flags
-   * example compiler flags I recommend:
-      * `-Wall -Wextra -DDEBUG -g -std=c++14`
-* A project name variable that you can use throughout your makefile
+Your Starvector must have the following:
+* `Starvector()`
+    * Initialize memory
+* `~Starvector()`
+    * deallocate all memory when the Star is deleted.
+* `long addPlanet()`
+    * return the ID of the newly created Planet
+* `bool removePlanet(int)`
+    * Takes a Planet’s ID as a parameter, and removes the Planet from the Star.
+    * You must return `true` upon successful deletion and `false` on failure if the ID isn't found.
+* `Planet * getPlanet(int)`
+    * Takes a Planet’s ID and returns a pointer to the Planet. If the Planet is not found, it returns NULL.
+* `void orbit()`
+    * Iterate through your planets and alter their orbit position by +1
+* `void printStarInfo()`
+    * Prints the Star information.
+* `unsigned int getCurrentNumPlanets()`
+    * returns the current number of planets stored (the size of the vector)
 
-### Constraints
+## Part D: Profiling
 
-The above public methods for your classes are the minimum interface requirements. You may add additional methods or instance variables to your classes if you feel they are needed. For full credit, please adhere to the following constraints, in addition to what is described above:
-* You may not use any __global variables__. The only exception to this is constant values, and they should be declared in all uppercase.        
-* Your lab must build from 2 different C++ source files (See expected structure below).
-    * Your ‘Star’ /’Planet’ classes should be defined in a header file, and implemented in a separate implementation (.cpp) file.
-    * The C++ file that contains the main() is provided below. You must use the provided driver code since it contains tests you must pass.
-    * _lab2.cpp_ and _Star.cpp_ should build into .o files called _lab2.o_ and _Star.o_, respectively, and should then link into an executable called _lab2_. Therefore, after building your program with make, we should be able to type `./lab2` to run it.
+Welcome to the easy part. If you made it this far, you can sit back and relax. I have written some profiling that test the operations for both versions of your Star class.
 
-## Part C : Code Organization and Submission
-* Required code organization:
-   * lab2.cpp (driver code - You must include this file in your submission)
-   * Star.h
-   * Star.cpp
-   * makefile
-      * executable should be called: lab2
-         * _do not add a .exe extension_
+Pay attention to the output.
+* What implementation is better for insertion?
+* Reading?
+* Overall?
 
-Below is just a reminder of the commands you should use to submit your code. If you cannot remember the exact process, please review lab 1.
+## Part E: Submission
 
-_These commands all presume that your current working directory is within the directory tracked by `git`._
+### Required file naming and organization:
+* program1.cpp //Driver Code
+* List.cpp/.h
+* Star.cpp/.h
+* Planet.cpp/.h
+* Vector.cpp/.h
+* makefile
+    * You must have the following labels in your makefile:
+        * all - to compile all your code to an executable called ‘program4’ (no extension). Do not run.
+        * run - to compile if necessary and run
+        * memcheck - to compile only if necessary and run with valgrind
+        * clean - to remove all executables and object files
 
-You will need to do the following when your submission is ready for grading.
+:no_entry: Every program will have a required submission guidelines. Please read submission requirements carefully. Any deviations from specifications will result in point deductions or incomplete grades.
+
+## README
+
+* KNOWN BUGS AND INCOMPLETE PARTS
+* REFERENCES
+* MISCELLANEOUS COMMENTS
+
+Before your final submission, edit the content for each of these sections in this README for your program. You do not have to use markdown, but you can find out more about markdown [here](https://guides.github.com/features/mastering-markdown/) if you would like to.
+
+### Git
+
+Below is a reminder of the commands you need to use to submit your program.
+
+:warning: You have created several files and even a folder for this program. Be sure you add them to the repo. If you forget to add the files to the repo, your assignment will be considered late or not accepted at all.
+
 ```shell
-git commit -am "final commit"
+git status
+git add mylib.h
+git commit -a -m "commit message"
 git push
 ```
 
-To complete your submission, you must copy and paste the commit hash into MyCourses. Go to MyCourses, select CS110, and then assignments. Select Lab 2, and where it says text submission, paste your commit hash. You can get your latest commit hash with the following command:
+To find your most recent commit hash, use the following command:
 
 ```shell
 git rev-parse HEAD
-```
+```    
 
-:warning: Remember, you __MUST__ make a submission on mycourses before the deadline to be considered on time.
+To complete your submission, you must copy and paste this number into mycourses. Go to MyCourses, select cs240, then program1 under **Assignment Hash Submission**, and where it says text submission, paste your commit hash.
+
+:warning: You __MUST__ submit the commit hash on mycourses before the deadline to be considered on time **even if your program is completely working before the deadline**. :warning:
