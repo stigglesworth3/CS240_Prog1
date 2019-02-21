@@ -1,4 +1,5 @@
-#pragma once
+#ifndef VECTOR_H
+#define VECTOR_H
 
 class Vector {
 	private:
@@ -14,3 +15,4 @@ class Vector {
 		void setSize(int);
 		//you may add any additional methods you may need.
 };
+#endif
