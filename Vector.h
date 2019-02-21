@@ -11,5 +11,6 @@ class Vector {
 		Planet* read(int);
 		bool remove(int);
 		unsigned size();
+		void setSize(int);
 		//you may add any additional methods you may need.
 };
