@@ -5,7 +5,7 @@
 #include "Planet.h"
 #include "Star.h"
 
-class List()
+class List
 {
 	Node * head;
 	Node * tail;
@@ -18,7 +18,7 @@ class List()
 	
 };
 
-class Node()
+class Node
 {
 	Planet * plan;
 	Node * next;
