@@ -7,6 +7,7 @@
 
 class List
 {
+	public:
 	Node * head;
 	Node * tail;
 	unsigned numNodes;
