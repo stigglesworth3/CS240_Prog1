@@ -5,24 +5,26 @@
 #include "Planet.h"
 #include "Star.h"
 
+class Node
+{
+	private:
+	Planet * plan;
+	Node * next;
+	Node * prev;
+};
+
 class List
 {
-	public:
+	private:
 	Node * head;
 	Node * tail;
 	unsigned numNodes;
+	public:
 	~List();
 	void insert(int, Planet*);
 	Planet * read(int);
 	bool remove(int);
 	unsigned size();
 	
-};
-
-class Node
-{
-	Planet * plan;
-	Node * next;
-	Node * prev;
 };
 #endif
