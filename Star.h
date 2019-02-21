@@ -1,4 +1,6 @@
-#pragma once
+#ifndef STAR_H
+#define STAR_H
+#include "Planet.h"
 
 class Star {
 	private:
@@ -7,7 +9,7 @@ class Star {
 	public:
         Planet **planets;
         Star();
-				~Star();
+	~Star();
         int addPlanet();
         Planet getFurthest();
         void orbit();
@@ -16,3 +18,4 @@ class Star {
         int getMaxPlanets();
         //you may add any additional methodas you may need.
 };
+#endif
