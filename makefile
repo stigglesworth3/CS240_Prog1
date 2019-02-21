@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -DDEBUG -g -std=c++14
-OBJFILES = lab2.o
-TARGET = lab2
+OBJFILES = program1.o
+TARGET = program1
 ADDITIONAL = Star
 
 
