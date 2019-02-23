@@ -19,5 +19,21 @@ class StarList
 	void printStarInfo();
 	unsigned int getCurrentNumPlanets() {return numPlanets;}
 };
+class StarVector
+{
+	private:
+	Vector v;
+	unsigned int numPlanets;
+
+	public:
+	StarVector();
+	~StarList();
+	long addPlanet();
+	bool removePlanet(int);
+	Planet * getPlanet(int);
+	void orbit();
+	void printStarInfo();
+	unsigned int getCurrentNumPlanets();
+}
 
 #endif
