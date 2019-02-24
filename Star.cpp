@@ -6,6 +6,9 @@
 
 StarList::StarList()
 {
+	this->stars->head = NULL;
+	this->stars->tail = NULL;
+	this->numPlanets = 0;
 }
 
 StarList::~StarList()
