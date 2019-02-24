@@ -23,8 +23,11 @@ void Vector::insert(int index, Planet * p) {
 	}
 }
 
-void Vector::setSize() {
-	
+
+unsigned Vector::size() {
+    int index = 0;
+    while (this->read(index) != NULL) index++;
+    return unsigned(index+1);
 }
 
 bool Vector::remove(int index) {
@@ -34,7 +37,6 @@ bool Vector::remove(int index) {
 		array[i] = array[i+1];
 	}
 	delete array[this->size()-1];
-	setSize(this->size()-1);
 	return true;
 	}
 	return false;
