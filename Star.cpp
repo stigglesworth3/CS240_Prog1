@@ -13,6 +13,7 @@ StarList::StarList()
 
 StarList::~StarList()
 {
+	//delete
 }
 
 long StarList::addPlanet()
