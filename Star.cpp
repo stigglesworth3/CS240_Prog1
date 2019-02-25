@@ -13,19 +13,27 @@ StarList::StarList()
 
 StarList::~StarList()
 {
-	//delete
+	while (this->head != this->tail)
+	{
+		this->head = this->head->next;
+		delete this->head->prev;
+	}
+	delete head;
+	head = tail = NULL;
 }
 
 long StarList::addPlanet()
 {
 }
 
-bool StarList::removePlanet(int)
+bool StarList::removePlanet(int index)
 {
+	return this->stars->remove(index);
 }
 
-Planet * StarList::getPlanet(int)
+Planet * StarList::getPlanet(int index)
 {
+	return this->stars->read(index);
 }
 
 void StarList::orbit()

@@ -90,6 +90,8 @@ bool List::remove(int index)
 	}
 	gone->prev->next = gone->next;
 	gone->next->prev = gone->prev;
+	delete gone;
+	gone = NULL;
 	this->numNodes--;
 	return true;
 }
