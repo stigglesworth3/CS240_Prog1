@@ -18,7 +18,7 @@ List::~List()
 	}
 }
 
-void List::insert(int index, Planet * p)
+void List::insert(long index, Planet * p)
 {
 	if (this->head == NULL)
 	{
@@ -28,38 +28,36 @@ void List::insert(int index, Planet * p)
 	}
 	else
 	{
-		if (index >= this->size())
+		if (this->head->plan->getID() > index)
 		{
-			this->tail->next = p;
-			p->prev = this->tail;
+			p->next = this->head;
+			p->prev = NULL;
+			this->head = p;
+			this->numNodes++;
+		}
+		else if (this->tail->plan->getID() < index)
+		{
+			p->next = NULL;
+			p->prev = tail;
 			this->tail = p;
 			this->numNodes++;
 		}
-		else
+		else 
 		{
-			if (index == 0)
+			Node * temp = this->head;
+			while (temp != tail)
 			{
-				this->head->prev = p;
-				p->next = this->head;
-				this->head = p;
-				this->numNodes++;
-			}
-			else
-			{
-				Planet * in = this->head->next;
-				for (int i=1; i<this->size(); i++)
+				if (index > this->temp->plan->getID() && index < this->temp->next->plan->getID())
 				{
-					if (i == index)
-					{
-						in->prev->next = p;
-						p->next = in;
-						in->prev = p;
-						this->numNodes++;
-						break;
-					}
+					p->next = temp->next;
+					p->prev = temp;
+					temp->next->prev = p;
+					temp->next = p;
+					this->numNodes++;
+					break;
 				}
 			}
-		}
+		}	
 	}
 }
 

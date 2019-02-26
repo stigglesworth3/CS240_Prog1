@@ -21,7 +21,7 @@ class List
 	unsigned numNodes;
 	public:
 	~List();
-	void insert(int, Planet*);
+	void insert(long, Planet*);
 	Planet * read(int);
 	bool remove(int);
 	unsigned size();

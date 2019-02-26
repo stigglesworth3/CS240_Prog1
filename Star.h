@@ -7,7 +7,7 @@
 class StarList
 {
 	private:
-	List stars;
+	List plans;
 	unsigned int numPlanets;
 	public:
 	StarList();

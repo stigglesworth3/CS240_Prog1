@@ -4,10 +4,12 @@
 #include <stdlib.h>
 #include <iostream>
 
+using namespace std;
+
 StarList::StarList()
 {
-	this->stars->head = NULL;
-	this->stars->tail = NULL;
+	this->plans->head = NULL;
+	this->plans->tail = NULL;
 	this->numPlanets = 0;
 }
 
@@ -24,24 +26,46 @@ StarList::~StarList()
 
 long StarList::addPlanet()
 {
+	Node toAdd;
+	Planet * p = new Planet(rand() % 10000);
+	toAdd->plan = p;
+	this->numPlanets++;
+	this->plans->insert(toAdd->plan->getID(),p);
+	return toAdd->plan->getID();
 }
 
 bool StarList::removePlanet(int index)
 {
-	return this->stars->remove(index);
+	this->numPlanets--;
+	return this->plans->remove(index);
 }
 
 Planet * StarList::getPlanet(int index)
 {
-	return this->stars->read(index);
+	return this->plans->read(index);
 }
 
 void StarList::orbit()
 {
+	Node * temp = this->head;
+	while (temp != NULL)
+	{
+		temp->plan->orbit();
+		temp = temp->next;
+	}
+	
 }
 
 void StarList::printStarInfo()
 {
+	Node * temp = this->head;
+	cerr << "The star currently has " << getCurrentNumPlanets() << " planets." << endl;
+	cerr << "Planets: " << endl;
+	while (temp != NULL)
+	{
+		cerr << "Planet " << temp->plan->getID() << " is " << temp->plan->getDistance() << " million miles away at position " << temp->plan->getPos() << "." << endl;
+		temp = temp->next;
+	}
 }
 
 
