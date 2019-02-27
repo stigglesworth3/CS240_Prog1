@@ -155,7 +155,7 @@ int main(){
     cerr << "\n\t\tTest #13 Passed...\n\n";
 
     cerr << "\n\t=========Test #14: Star Classes ===========\n\n";
-    Starlist * sl = new Starlist();
+    StarList * sl = new StarList();
     assert(sl->getCurrentNumPlanets() == 0);
     id_list[0] = sl->addPlanet();
     assert(sl->getCurrentNumPlanets() == 1);
@@ -164,7 +164,7 @@ int main(){
     sl->orbit();
     assert(p->getPos() == (pos + 1) % 360);
 
-    Starvector * sv = new Starvector();
+    StarVector * sv = new StarVector();
     assert(sv->getCurrentNumPlanets() == 0);
     id_list[1] = sv->addPlanet();
     assert(sv->getCurrentNumPlanets() == 1);
@@ -202,8 +202,8 @@ int main(){
     cerr << "\n\t\tTest #15 Passed (but check valgrind to be sure)...\n\n";
 
     cerr << "Comparing performance of Vectors and Lists\n";
-    sl = new Starlist();
-    sv = new Starvector();
+    sl = new StarList();
+    sv = new StarVector();
 
     struct timeval start, stop;
     float profile_time;

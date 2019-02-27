@@ -27,7 +27,7 @@ class StarVector
 
 	public:
 	StarVector();
-	~StarList();
+	~StarVector();
 	long addPlanet();
 	bool removePlanet(int);
 	Planet * getPlanet(int);
