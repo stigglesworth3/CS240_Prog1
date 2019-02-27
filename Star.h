@@ -22,7 +22,7 @@ class StarList
 class StarVector
 {
 	private:
-	Vector v;
+	Vector vector;
 	unsigned int numPlanets;
 
 	public:
@@ -34,6 +34,6 @@ class StarVector
 	void orbit();
 	void printStarInfo();
 	unsigned int getCurrentNumPlanets();
-}
+};
 
 #endif

@@ -1,17 +1,20 @@
 #ifndef VECTOR_H
 #define VECTOR_H
+#include "Planet.h"
 
 class Vector {
 	private:
-		Planet* array;
+		Planet** array;
 
 	public:
-		void insert(int, Planet *p);
+		void insert(int, Planet *);
 		~Vector();
+		Vector(int);
+		Vector();
 
 		Planet* read(int);
 		bool remove(int);
-		unsigned size();
+		int size();
 		void setSize(int);
 		//you may add any additional methods you may need.
 };

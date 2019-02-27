@@ -53,7 +53,7 @@ void StarList::orbit()
 		temp->plan->orbit();
 		temp = temp->next;
 	}
-	
+
 }
 
 void StarList::printStarInfo()
@@ -71,64 +71,64 @@ void StarList::printStarInfo()
 
 StarVector::StarVector()
 {
-  v = new Vector(1);
+  this->vector = new Vector();
 }
 
 StarVector::~StarVector()
 {
-  delete v;
+  delete this->vector;
 }
 
-StarVector::long addPlanet()
+long StarVector::addPlanet()
 {
-  int size = v.size();
+  int size = this->vector.size();
   int dist = rand() % 10000;
   Planet * p = new Planet(dist);
-  v->insert(size, p);
+  this->vector.insert(size, p);
   return p->getID();
 }
 
-StarVector::bool removePlanet(int id)
+bool StarVector::removePlanet(int id)
 {
   Planet * p;
-  for (int i=0; i<v.size(); i++) {
-    p = v.read(i);
+  for (int i=0; i<this->vector.size(); i++) {
+    p = this->vector.read(i);
     if (p->getID() == (long)(id)) {
-      v.removePlanet(i);
+      this->vector.remove(i);
       return true;
     }
   }
   return false;
 }
 
-StarVector::Planet * getPlanet(int id)
+Planet * StarVector::getPlanet(int id)
 {
   Planet * p;
-  for (int i=0; i<v.size(); i++) {
+  for (int i=0; i<this->vector.size(); i++) {
     if (p->getID() == (long)(id)) return p;
   }
   return NULL;
 }
 
-StarVector::void orbit()
+void StarVector::orbit()
 {
   Planet * p;
-  for (int i=0; i<v.size(); i++) {
-    p = v.read(i);
+  for (int i=0; i<this->vector.size(); i++) {
+    p = this->vector.read(i);
     p->orbit();
   }
 }
 
-StarVector::void printStarInfo()
+void StarVector::printStarInfo()
 {
   std::cout << "The star currently has " << getCurrentNumPlanets() << " planets.\nPlanets:\n";
-  for (int i=0; i<v.size(); i++) {
-    Planet * p = v.getPlanet(i)
+  for (int i=0; i<this->vector.size(); i++) {
+    Planet * p = this->getPlanet(i);
     std::cout << "Planet " << p->getID() << " is " <<  p->getDistance() << " million miles away at position " <<  p->getPos() << " around the star.\n";
   }
 }
 
-StarVector::unsigned int getCurrentNumPlanets()
+unsigned int StarVector::getCurrentNumPlanets()
 {
-  return (unsigned int)(v.size());
+  return ((this->vector.size()));
 }
