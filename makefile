@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -Wextra -DDEBUG -g -std=c++14
+CFLAGS = -Wall -Wextra -DDEBUG -g -std=c++11
 OBJFILES = program1.o
 TARGET = program1
 STAR = Star

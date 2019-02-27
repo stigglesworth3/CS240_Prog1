@@ -1,12 +1,8 @@
-#include "Star.h"
-#include "Star.h"
-#include "Planet.h"
-#include "Planet.h"
-#include "Vector.h"
-#include "Vector.h"
-#include "List.h"
-#include "List.h"
 #include <cassert>
+#include "Star.h"
+#include "Planet.h"
+#include "Vector.h"
+#include "List.h"
 #include <iostream>
 #include <ctime>
 #include <sys/time.h>
