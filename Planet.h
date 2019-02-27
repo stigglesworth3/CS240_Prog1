@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLANET_H
+#define PLANET_H
 
 class Planet {
 	private:
@@ -19,3 +20,4 @@ class Planet {
 		char getType() { return type; }
 		//you may add any additional methods you may need.
 };
+#endif
