@@ -4,12 +4,12 @@
 
 #define MAX_SIZE 100
 
-Vector::Vector(int size){
-	this->array = new Planet*[size];
-}
-
 Vector::Vector(){
 	this->array = new Planet*[100];
+}
+
+Vector::Vector(int size){
+	this->array = new Planet*[size];
 }
 
 Planet* Vector::read(int index) {
