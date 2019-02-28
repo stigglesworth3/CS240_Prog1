@@ -9,8 +9,9 @@ class Vector {
 	public:
 		void insert(int, Planet *);
 		~Vector();
-		Vector(int);
 		Vector();
+		Vector(int);
+		
 
 		Planet* read(int);
 		bool remove(int);
