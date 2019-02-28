@@ -13,7 +13,8 @@ all: $(TARGET)
 $(TARGET): $(OBJFILES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp $(STAR).cpp $(PLANET).cpp $(VECTOR).cpp $(LIST).cpp $(LDFLAGS)
 
-memcheck: $(VALGRIND) $(TARGET)
+memcheck: 
+	valgrind -—leak-check=yes ./program1
 	
 
 clean:

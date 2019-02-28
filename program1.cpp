@@ -90,17 +90,17 @@ int main(){
     vect->remove(50);
     vect->remove(40);
     cerr << vect->size() << endl;
-    printf("vector size = %d\n", vect->size());
+
     assert(vect->size() == 49);
     cerr << "\n\t=========Test #7 Passed...            ===========\n\n";
 
     cerr << "\n\t=========Test #8: Remove elements from the vector randomly ===========\n\n";
 
-    // while(vect->size()){
-    //     printf("removed\n");
-    //     vect->remove((rand()%5));
-    // }
-    // vect->remove(50);
+    while(vect->size()) {
+        vect->remove((rand()%5));
+    }
+
+    vect->remove(50);
 
     cerr << "\n\t=========Test #8 Passed...            ===========\n\n";
 

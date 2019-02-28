@@ -50,17 +50,28 @@ int Vector::size() {
 
 bool Vector::remove(int index) {
 	if (index == 0 && this->size() == 1) {
-		delete this;
+		this->arrLength = 0;
+		this->array[0] = NULL;
+		this->array = NULL;
 		return true;
 	}
 	if (index < this->size() && index >= 0) {
-		Planet** arr = new Planet*[index+1];
+		Planet** arr = new Planet*[this->size()-1];
+		int k = 0;
 		for (int i=0; i<this->size()-1; i++) {
-			if (index != i) arr[i] = this->array[i];
+			if (index != i) {
+				arr[i] = this->array[i];
+				k++;
+			}
+			else {
+				arr[i] = arr[k+1];
+				k += 2;
+			}
 		}
-		delete this->array;
-		this->array = arr;
-		this->arrLength -= 1;
+	delete this->array;
+	this->array = NULL;
+	this->array = arr;
+	this->arrLength -= 1;
 	return true;
 	}
 	return false;
