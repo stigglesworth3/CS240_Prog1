@@ -42,12 +42,12 @@ bool StarList::removePlanet(int index)
 
 Planet * StarList::getPlanet(int index)
 {
-	return this->plans->read(index);
+	return this->plans.read(index);
 }
 
 void StarList::orbit()
 {
-	Node * temp = this->head;
+	Node * temp = this->plans->head;
 	while (temp != NULL)
 	{
 		temp->plan->orbit();
@@ -58,7 +58,7 @@ void StarList::orbit()
 
 void StarList::printStarInfo()
 {
-	Node * temp = this->head;
+	Node * temp = this->plans->head;
 	cerr << "The star currently has " << getCurrentNumPlanets() << " planets." << endl;
 	cerr << "Planets: " << endl;
 	while (temp != NULL)

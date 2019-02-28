@@ -7,7 +7,7 @@
 
 class Node
 {
-	private:
+	public:
 	Planet * plan;
 	Node * next;
 	Node * prev;
@@ -20,6 +20,7 @@ class List
 	Node * tail;
 	unsigned numNodes;
 	public:
+	List();
 	~List();
 	void insert(long, Planet*);
 	Planet * read(int);
