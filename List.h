@@ -16,10 +16,10 @@ class Node
 class List
 {
 	private:
-	Node * head;
-	Node * tail;
 	unsigned numNodes;
 	public:
+	Node * head;
+	Node * tail;
 	List();
 	~List();
 	void insert(long, Planet*);

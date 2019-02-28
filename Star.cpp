@@ -8,36 +8,36 @@ using namespace std;
 
 StarList::StarList()
 {
-	this->plans->head = NULL;
-	this->plans->tail = NULL;
+	this->plans.head = NULL;
+	this->plans.tail = NULL;
 	this->numPlanets = 0;
 }
 
 StarList::~StarList()
 {
-	while (this->head != this->tail)
+	while (this->plans.head != this->plans.tail)
 	{
-		this->head = this->head->next;
-		delete this->head->prev;
+		this->plans.head = this->plans.head->next;
+		delete this->plans.head->prev;
 	}
-	delete head;
-	head = tail = NULL;
+	delete this->plans.head;
+	this->plans.head = this->plans.tail = NULL;
 }
 
 long StarList::addPlanet()
 {
-	Node toAdd;
+	Node * toAdd;
 	Planet * p = new Planet(rand() % 10000);
 	toAdd->plan = p;
 	this->numPlanets++;
-	this->plans->insert(toAdd->plan->getID(),p);
+	this->plans.insert(toAdd->plan->getID(),p);
 	return toAdd->plan->getID();
 }
 
 bool StarList::removePlanet(int index)
 {
 	this->numPlanets--;
-	return this->plans->remove(index);
+	return this->plans.remove(index);
 }
 
 Planet * StarList::getPlanet(int index)
@@ -47,7 +47,7 @@ Planet * StarList::getPlanet(int index)
 
 void StarList::orbit()
 {
-	Node * temp = this->plans->head;
+	Node * temp = this->plans.head;
 	while (temp != NULL)
 	{
 		temp->plan->orbit();
@@ -58,7 +58,7 @@ void StarList::orbit()
 
 void StarList::printStarInfo()
 {
-	Node * temp = this->plans->head;
+	Node * temp = this->plans.head;
 	cerr << "The star currently has " << getCurrentNumPlanets() << " planets." << endl;
 	cerr << "Planets: " << endl;
 	while (temp != NULL)
