@@ -5,15 +5,17 @@
 #define MAX_SIZE 100
 
 Vector::Vector(){
-	this->array = new Planet*[100];
+	this->array = new Planet*[0];
+	arrLength = 0;
 }
 
 Vector::Vector(int size){
 	this->array = new Planet*[size];
+	arrLength = size;
 }
 
 Planet* Vector::read(int index) {
-	if (index >= this->size() || index < 0) return NULL;
+	if (this->array[index] == NULL) return NULL;
 	return this->array[index];
 }
 
@@ -23,19 +25,26 @@ Vector::~Vector() {
 }
 
 void Vector::insert(int index, Planet * p) {
-	if (index < this->size()) this->array[index] = p;
-	else {
-		// increase size to index+1
-		this->array = (Planet**) realloc (this->array, sizeof(Planet));
+	if (index < this->size()) {
 		this->array[index] = p;
+		this->arrLength = arrLength + 1;
+	}
+	else {
+		// newSize = (arrLength + arrLength-index-1)
+		Planet** arr = new Planet*[index+1];
+		for (int i=0; i<index; i++) {
+			arr[i] = this->array[i];
+		}
+		arr[index] = p;
+		this->arrLength = index + 1;
+		delete this->array;
+		this->array = arr;
 	}
 }
 
 
 int Vector::size() {
-    int index = 0;
-    while (this->read(index) != NULL) index++;
-    return index+1;
+    return this->arrLength;
 }
 
 bool Vector::remove(int index) {
