@@ -15,6 +15,7 @@ Vector::Vector(int size){
 }
 
 Planet* Vector::read(int index) {
+	if (index > this->size() || index < 0) return NULL;
 	if (this->array[index] == NULL) return NULL;
 	return this->array[index];
 }
@@ -32,7 +33,7 @@ void Vector::insert(int index, Planet * p) {
 	else {
 		// newSize = (arrLength + arrLength-index-1)
 		Planet** arr = new Planet*[index+1];
-		for (int i=0; i<index; i++) {
+		for (int i=0; i<this->size(); i++) {
 			arr[i] = this->array[i];
 		}
 		arr[index] = p;
@@ -48,12 +49,18 @@ int Vector::size() {
 }
 
 bool Vector::remove(int index) {
-	if (index < this->size() && index >= 0) {
-	this->array[index] = NULL;
-	for (int i=index; i<this->size()-1; i++) {
-		array[i] = array[i+1];
+	if (index == 0 && this->size() == 1) {
+		delete this;
+		return true;
 	}
-	//delete array[this->size()-1];
+	if (index < this->size() && index >= 0) {
+		Planet** arr = new Planet*[index+1];
+		for (int i=0; i<this->size()-1; i++) {
+			if (index != i) arr[i] = this->array[i];
+		}
+		delete this->array;
+		this->array = arr;
+		this->arrLength -= 1;
 	return true;
 	}
 	return false;
