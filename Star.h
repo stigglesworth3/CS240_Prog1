@@ -22,7 +22,7 @@ class StarList
 class StarVector
 {
 	private:
-	Vector vector;
+	Vector *vector;
 	unsigned int numPlanets;
 
 	public:

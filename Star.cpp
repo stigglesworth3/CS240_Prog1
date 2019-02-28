@@ -81,20 +81,20 @@ StarVector::~StarVector()
 
 long StarVector::addPlanet()
 {
-  int size = this->vector.size();
+  int size = this->vector->size();
   int dist = rand() % 10000;
   Planet * p = new Planet(dist);
-  this->vector.insert(size, p);
+  this->vector->insert(size, p);
   return p->getID();
 }
 
 bool StarVector::removePlanet(int id)
 {
   Planet * p;
-  for (int i=0; i<this->vector.size(); i++) {
-    p = this->vector.read(i);
+  for (int i=0; i<this->vector->size(); i++) {
+    p = this->vector->read(i);
     if (p->getID() == (long)(id)) {
-      this->vector.remove(i);
+      this->vector->remove(i);
       return true;
     }
   }
@@ -104,7 +104,7 @@ bool StarVector::removePlanet(int id)
 Planet * StarVector::getPlanet(int id)
 {
   Planet * p;
-  for (int i=0; i<this->vector.size(); i++) {
+  for (int i=0; i<this->vector->size(); i++) {
     if (p->getID() == (long)(id)) return p;
   }
   return NULL;
@@ -113,8 +113,8 @@ Planet * StarVector::getPlanet(int id)
 void StarVector::orbit()
 {
   Planet * p;
-  for (int i=0; i<this->vector.size(); i++) {
-    p = this->vector.read(i);
+  for (int i=0; i<this->vector->size(); i++) {
+    p = this->vector->read(i);
     p->orbit();
   }
 }
@@ -122,7 +122,7 @@ void StarVector::orbit()
 void StarVector::printStarInfo()
 {
   std::cout << "The star currently has " << getCurrentNumPlanets() << " planets.\nPlanets:\n";
-  for (int i=0; i<this->vector.size(); i++) {
+  for (int i=0; i<this->vector->size(); i++) {
     Planet * p = this->getPlanet(i);
     std::cout << "Planet " << p->getID() << " is " <<  p->getDistance() << " million miles away at position " <<  p->getPos() << " around the star.\n";
   }
@@ -130,5 +130,5 @@ void StarVector::printStarInfo()
 
 unsigned int StarVector::getCurrentNumPlanets()
 {
-  return ((this->vector.size()));
+  return ((this->vector->size()));
 }
