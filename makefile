@@ -1,21 +1,20 @@
 CC = g++
 CFLAGS = -Wall -Wextra -DDEBUG -g -std=c++11
-OBJFILES = program1.o
-TARGET = program1
-STAR = Star
-PLANET = Planet
-VECTOR = Vector
-LIST = List
+OBJFILES = lab4.o
+TARGET = lab4
 VALGRIND = valgrind --leak-check=yes
 
 all: $(TARGET)
 
 $(TARGET): $(OBJFILES)
-	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp $(STAR).cpp $(PLANET).cpp $(VECTOR).cpp $(LIST).cpp $(LDFLAGS)
+	$(CC) $(CFLAGS) -o $(TARGET) $(TARGET).cpp $(LDFLAGS)
 
 memcheck: 
-	valgrind -—leak-check=yes ./program1
+	valgrind -—leak-check=yes ./lab4
 	
 
 clean:
 	rm -f $(OBJFILES) $(TARGET) *~
+
+run:
+	./$(TARGET)

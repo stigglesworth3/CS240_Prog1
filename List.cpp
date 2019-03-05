@@ -20,49 +20,7 @@ List::~List()
 
 void List::insert(long index, Planet * p)
 {
-	if (this->head == NULL)
-	{
-		Node * first;
-		first->plan = p;
-		this->head = first;
-		this->tail = first;
-		this->numNodes++;
-	}
-	else
-	{
-		Node * put;
-		put->plan = p;
-		if (this->head->plan->getID() > index)
-		{
-			put->next = this->head;
-			put->prev = NULL;
-			this->head = put;
-			this->numNodes++;
-		}
-		else if (this->tail->plan->getID() < index)
-		{
-			put->next = NULL;
-			put->prev = tail;
-			this->tail = put;
-			this->numNodes++;
-		}
-		else 
-		{
-			Node * temp = this->head;
-			while (temp != tail)
-			{
-				if (index > temp->plan->getID() && index < temp->next->plan->getID())
-				{
-					put->next = temp->next;
-					put->prev = temp;
-					temp->next->prev = put;
-					temp->next = put;
-					this->numNodes++;
-					break;
-				}
-			}
-		}	
-	}
+    // increment numNoddes
 }
 
 Planet * List::read(int index)

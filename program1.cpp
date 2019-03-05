@@ -124,6 +124,7 @@ int main(){
     int index = 0;
     //add elements to the list
     for(int index = 0 ; index < 10 ; index++ ){
+        printf("inserted %d", index);
         list->insert(index, new Planet(0));
     }
     assert(list->size() == 10);
